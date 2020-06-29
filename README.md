@@ -6,4 +6,7 @@
    ### The city name
    ### The temperature
    
-# Just entering into the project and hit click add will add data to its table view where you can see the data you have saved. 
+# Open the app, 
+   #### click load 0 for lat 0 & lon 0
+   #### load b for london
+   #### load c for dublin
