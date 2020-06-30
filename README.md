@@ -1,6 +1,6 @@
 # WeatherWebServicesWithCoreData
 
-# This Project will save the following data into persistance:
+# This Project will save the following data into persistence:
    ### The city name & its temperature
    
 ## Open the app:
