@@ -72,18 +72,12 @@ class ViewController: UIViewController {
            }
        }
     
-    
-   
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loaderIndicator()
-        
         coreDataLogic()
-        
     }
-    
     
     
     @available(iOS 12.0, *)
@@ -128,10 +122,7 @@ class ViewController: UIViewController {
         activityIndicator = NVActivityIndicatorView(frame: indicatorFrame, type: .lineScale, color: UIColor.white, padding: 20.0)
         activityIndicator.backgroundColor = UIColor.black
         view.addSubview(activityIndicator)
-        
-        
-        
-        //activityIndicator.startAnimating()
+
     }
     
     @IBAction func addToDataPersistance(_ sender: Any) {
@@ -154,7 +145,6 @@ class ViewController: UIViewController {
         
         weather.name = name
         weather.temp = num
-        //supplier.creationDate = Date()
         
         
         //Save to persistent store
