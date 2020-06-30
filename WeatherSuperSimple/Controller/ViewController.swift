@@ -17,10 +17,9 @@ import Network
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var locationTextField: UITextField!
     
     @IBOutlet weak var cityLael: UILabel!
-    
-    @IBOutlet weak var descripitonLbl: UILabel!
     
     @IBOutlet weak var tempNumLbl: UILabel!
     
@@ -34,91 +33,47 @@ class ViewController: UIViewController {
     var activityIndicator: NVActivityIndicatorView!
     
     
-    fileprivate func networkRequest() {
-        let weatherEndPoint = WeatherAPI.EndPoint.base.url
+    
+    @IBAction func search(_ sender: Any) {
         
-        Alamofire.request("\(weatherEndPoint)").responseJSON { response in
-            
-            self.activityIndicator.stopAnimating()
-            
-            if let responseStr = response.result.value {
-                let jsonResponse = JSON(responseStr)
-                let jsonWeather = jsonResponse["weather"].array![0]
-                
-                let jsonTemp = jsonResponse["main"]
-                
-                
-                self.descripitonLbl.text = "Lat 0 & Lon 0"
-                
-                
-                self.cityLael.text = jsonResponse["name"].stringValue
-                
-                self.tempNumLbl.text = "\(Int(round(jsonTemp["temp"].doubleValue)))"
-            }
+        // Get the location that the user typed
+        // Check that the location is not nil
+        guard let userLocation = locationTextField.text else {
+            return
         }
-    }
-    
-    fileprivate func networkRequestB() {
-        let weatherEndPoint = WeatherAPI.EndPoint.london.url
         
-        Alamofire.request("\(weatherEndPoint)").responseJSON { response in
-            
-            self.activityIndicator.stopAnimating()
-            
-            if let responseStr = response.result.value {
-                let jsonResponse = JSON(responseStr)
-                let jsonWeather = jsonResponse["weather"].array![0]
-                let jsonTemp = jsonResponse["main"]
-                
-                
-                self.descripitonLbl.text = ""
-                
-                
-                self.cityLael.text = jsonResponse["name"].stringValue
-                
-                self.tempNumLbl.text = "\(Int(round(jsonTemp["temp"].doubleValue)))"
-            }
-        }
-    }
-    
-    
-    fileprivate func networkRequestC() {
-        let weatherEndPoint = WeatherAPI.EndPoint.dublin.url
+        // Show the loading indicator
+        activityIndicator.startAnimating()
         
-        Alamofire.request("\(weatherEndPoint)").responseJSON { response in
-            
-            self.activityIndicator.stopAnimating()
-            
-            if let responseStr = response.result.value {
-                let jsonResponse = JSON(responseStr)
-                let jsonWeather = jsonResponse["weather"].array![0]
-                
-                let jsonTemp = jsonResponse["main"]
-                
-                
-                self.descripitonLbl.text = ""
-                
-                
-                self.cityLael.text = jsonResponse["name"].stringValue
-                
-                self.tempNumLbl.text = "\(Int(round(jsonTemp["temp"].doubleValue)))"
-            }
-        }
+        // Search for the user favorite city location
+        searchUserLocation(userLocation)
+        
     }
+
+    private func searchUserLocation(_ location: String) {
+        
+        let weatherEndPoint = WeatherAPI.Endpoints.getUserInfo(cityName: location).url
+           
+           Alamofire.request("\(weatherEndPoint)").responseJSON { response in
+               
+               self.activityIndicator.stopAnimating()
+               
+               if let responseStr = response.result.value {
+                   let jsonResponse = JSON(responseStr)
+                   let jsonWeather = jsonResponse["weather"].array![0]
+                   
+                   let jsonTemp = jsonResponse["main"]
+                   
+                   
+                   self.cityLael.text = jsonResponse["name"].stringValue
+                   
+                   self.tempNumLbl.text = "\(Int(round(jsonTemp["temp"].doubleValue)))"
+               }
+           }
+       }
     
     
-    
-    @IBAction func loadA(_ sender: Any) {
-        networkRequest()
-    }
-    
-    @IBAction func loadB(_ sender: Any) {
-        networkRequestB()
-    }
-    
-    @IBAction func loadC(_ sender: Any) {
-        networkRequestC()
-    }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -176,23 +131,17 @@ class ViewController: UIViewController {
         
         
         
-        activityIndicator.startAnimating()
+        //activityIndicator.startAnimating()
     }
     
-    
-    @IBAction func addToTableView(_ sender: Any) {
+    @IBAction func addToDataPersistance(_ sender: Any) {
         addingRow()
     }
     
-    
-    
-    
     func addingRow() {
-        
         let name = cityLael.text
         let num = tempNumLbl.text
         self.addWeather(name: name!, num: num!)
-        
     }
     
     

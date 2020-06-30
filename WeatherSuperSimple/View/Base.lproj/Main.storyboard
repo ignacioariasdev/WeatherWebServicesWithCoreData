@@ -15,32 +15,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5S-9z-OIz">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U5S-9z-OIz">
                                 <rect key="frame" x="0.0" y="44" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCw-Lf-eR2">
-                                        <rect key="frame" x="139.5" y="52" width="125" height="28"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="125" id="DkI-k4-aeQ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
-                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwP-9E-lGy">
-                                        <rect key="frame" x="148" y="192" width="93" height="64"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="93" id="SZR-il-Fhw"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwP-9E-lGy">
+                                        <rect key="frame" x="153" y="313" width="93" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="57"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="℃" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxG-J5-Jgs">
-                                        <rect key="frame" x="196" y="215" width="125" height="28"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="125" id="ypQ-2G-bJp"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="℃" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxG-J5-Jgs">
+                                        <rect key="frame" x="242" y="336" width="28" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -76,82 +64,49 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqn-7Z-auh">
-                                        <rect key="frame" x="116" y="419" width="165" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Try: Dublin or London or California" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="osX-h6-lV3">
+                                        <rect key="frame" x="20" y="79" width="260" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MyK-mR-idz">
+                                        <rect key="frame" x="311" y="81" width="54" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Add to Data Persistance">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="Search">
+                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="addToTableView:" destination="XlO-VW-qHw" eventType="touchUpInside" id="vM1-g6-2h5"/>
+                                            <action selector="search:" destination="XlO-VW-qHw" eventType="touchUpInside" id="3Nw-1L-x3I"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunny" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKz-nv-FJB">
-                                        <rect key="frame" x="175" y="119" width="54.5" height="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="San Francisco" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCw-Lf-eR2">
+                                        <rect key="frame" x="73" y="258" width="279" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77A-eK-79q">
-                                        <rect key="frame" x="109" y="328" width="48" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Load B">
-                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="loadB:" destination="XlO-VW-qHw" eventType="touchUpInside" id="uem-LN-T4t"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHO-qX-FQ4">
-                                        <rect key="frame" x="196" y="328" width="49" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Load C">
-                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="loadC:" destination="XlO-VW-qHw" eventType="touchUpInside" id="sl7-qw-50T"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tlk-jq-Qkk">
-                                        <rect key="frame" x="32" y="328" width="48" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Load A">
-                                            <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="loadA:" destination="XlO-VW-qHw" eventType="touchUpInside" id="uYV-iw-P8U"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="nwP-9E-lGy" firstAttribute="top" secondItem="NKz-nv-FJB" secondAttribute="bottom" constant="45" id="48V-FN-iyR"/>
-                                    <constraint firstItem="cCw-Lf-eR2" firstAttribute="top" secondItem="U5S-9z-OIz" secondAttribute="topMargin" id="GMh-gM-lID"/>
-                                    <constraint firstItem="NKz-nv-FJB" firstAttribute="top" secondItem="cCw-Lf-eR2" secondAttribute="bottom" constant="39" id="Ocp-5t-TCd"/>
-                                    <constraint firstItem="fxG-J5-Jgs" firstAttribute="top" secondItem="NKz-nv-FJB" secondAttribute="bottom" constant="68" id="U8r-fE-2hC"/>
-                                    <constraint firstItem="cCw-Lf-eR2" firstAttribute="leading" secondItem="nwP-9E-lGy" secondAttribute="leading" constant="-8.5" id="VwI-vF-mRQ"/>
-                                    <constraint firstItem="cCw-Lf-eR2" firstAttribute="centerX" secondItem="NKz-nv-FJB" secondAttribute="centerX" constant="-0.25" id="faf-OA-Jk0"/>
-                                    <constraint firstItem="fxG-J5-Jgs" firstAttribute="leading" secondItem="U5S-9z-OIz" secondAttribute="leading" constant="196" id="oo9-R0-OFp"/>
-                                    <constraint firstItem="NKz-nv-FJB" firstAttribute="leading" secondItem="U5S-9z-OIz" secondAttribute="leading" constant="175" id="vdV-jN-plj"/>
-                                    <constraint firstItem="nwP-9E-lGy" firstAttribute="baseline" secondItem="fxG-J5-Jgs" secondAttribute="firstBaseline" id="yRh-Yz-MYP"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="U5S-9z-OIz" firstAttribute="centerX" secondItem="ie5-sr-3BB" secondAttribute="centerX" id="0RX-wP-JCq"/>
-                            <constraint firstItem="U5S-9z-OIz" firstAttribute="centerY" secondItem="ie5-sr-3BB" secondAttribute="centerY" id="LWr-OW-yLv"/>
-                            <constraint firstItem="U5S-9z-OIz" firstAttribute="leading" secondItem="d2N-4h-P71" secondAttribute="leading" id="dvX-th-JEx"/>
-                            <constraint firstItem="U5S-9z-OIz" firstAttribute="top" secondItem="ie5-sr-3BB" secondAttribute="topMargin" constant="-44" id="ykM-3F-SDH"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="d2N-4h-P71"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jvn-Ga-qBY"/>
+                    <navigationItem key="navigationItem" id="jvn-Ga-qBY">
+                        <barButtonItem key="rightBarButtonItem" title="Add to data Persistance" id="W3O-AU-gai">
+                            <connections>
+                                <action selector="addToDataPersistance:" destination="XlO-VW-qHw" id="Eno-Js-UOK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cityLael" destination="cCw-Lf-eR2" id="1W9-bx-2nu"/>
-                        <outlet property="descripitonLbl" destination="NKz-nv-FJB" id="2N4-gl-f0e"/>
+                        <outlet property="locationTextField" destination="osX-h6-lV3" id="URu-WM-ckl"/>
                         <outlet property="tableView" destination="kJu-An-kdV" id="Kf0-2j-jj1"/>
                         <outlet property="tempNumLbl" destination="nwP-9E-lGy" id="O4R-7Z-nbF"/>
                     </connections>
