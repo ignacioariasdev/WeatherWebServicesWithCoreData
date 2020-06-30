@@ -8,6 +8,6 @@
    #### tap on the upper right corner to add into data persistence.
 
 
-# Steps to build the project, in case you don't have Cocoapod installed already, here is a video: https://www.youtube.com/watch?v=MuMZZtQpB6Y&t=149s
+# Steps to build the project, in case you don't have Cocoapod installed already, here is a famous video: https://www.youtube.com/watch?v=MuMZZtQpB6Y&t=149s
 
 
