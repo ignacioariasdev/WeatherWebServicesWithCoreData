@@ -50,6 +50,8 @@ class ViewController: UIViewController {
         
     }
 
+    
+    // MARK: - should be refactored outside of the VC.
     private func searchUserLocation(_ location: String) {
         
         let weatherEndPoint = WeatherAPI.Endpoints.getUserInfo(cityName: location).url
