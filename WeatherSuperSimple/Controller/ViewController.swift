@@ -105,7 +105,8 @@ class ViewController: UIViewController {
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         if let result = try? dataController.viewContext.fetch(fetchRequest) {
-            //Adding the fetch from coreData to the array of dataSource
+            
+            // Array from dataSource fetched with coreData
             weathers = result
             //refresh UI by repopulating the data
             tableView.reloadData()
