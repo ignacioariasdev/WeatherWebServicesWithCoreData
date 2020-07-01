@@ -27,8 +27,6 @@ class WeatherAPI {
             return URL(string: stringValue)!
         }
     }
+ 
     
 }
-
-
-

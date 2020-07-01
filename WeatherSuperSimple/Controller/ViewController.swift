@@ -7,19 +7,16 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
 import CoreData
 import NVActivityIndicatorView
 import Network
-
-//TODO: finish coreData implementation.
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var locationTextField: UITextField!
     
     @IBOutlet weak var cityLael: UILabel!
+    @IBOutlet weak var descLbl: UILabel!
     
     @IBOutlet weak var tempNumLbl: UILabel!
     
@@ -49,32 +46,51 @@ class ViewController: UIViewController {
         searchUserLocation(userLocation)
         
     }
-
     
-    // MARK: - should be refactored outside of the VC.
-    private func searchUserLocation(_ location: String) {
+    func searchUserLocation(_ location: String) {
         
         let weatherEndPoint = WeatherAPI.Endpoints.getUserInfo(cityName: location).url
-           
-           Alamofire.request("\(weatherEndPoint)").responseJSON { response in
-               
-               self.activityIndicator.stopAnimating()
-               
-               if let responseStr = response.result.value {
-                   let jsonResponse = JSON(responseStr)
-                   let jsonWeather = jsonResponse["weather"].array![0]
-                   
-                   let jsonTemp = jsonResponse["main"]
-                   
-                   
-                   self.cityLael.text = jsonResponse["name"].stringValue
-                   
-                   self.tempNumLbl.text = "\(Int(round(jsonTemp["temp"].doubleValue)))"
-               }
-           }
-       }
+        
+        //Here is the factored code to make the network request outside of the ViewController
+        NetworkController.requestWeatherData(url: weatherEndPoint) { (data, error) in
+            
+            guard let data = data else { return }
+            
+            // N bytes (457 bytes dublin)
+            //print(data)
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                
+                // self here means we are referring the definition of WeatherJson we just created, not the instance of the struct.
+                let weatherData = try decoder.decode(WeatherJson.self, from: data)
+                
+                // Json decoded or parsed: now you're able to see the json structure that you are decoding.
+                // Dublin decoded or parsed into our model object WeatherJson
+                //print(weatherData)
+                
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.cityLael.text = weatherData.name
+                    self.descLbl.text = weatherData.weather[0].description
+                    self.tempNumLbl.text = String(weatherData.main.temp)
+                }
+                
+            }
+            catch {
+                
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.locationTextField.text = "That's not a city, try again!"
+                }
+                print("That's not a city!, " + error.localizedDescription)
+            }
+            
+        }
+        
+    }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         loaderIndicator()
@@ -95,9 +111,9 @@ class ViewController: UIViewController {
     }
     
     fileprivate func coreDataLogic() {
+        
         //NSManagedContext, this is step 10.
         let fetchRequest: NSFetchRequest<Weather> = Weather.fetchRequest()
-        
         
         //step 10.1
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
@@ -113,19 +129,19 @@ class ViewController: UIViewController {
             
         }
         
-        
         tableView.dataSource = self
         tableView.delegate = self
     }
     
     fileprivate func loaderIndicator() {
+        
         let indicatorSize: CGFloat = 70
         let indicatorFrame = CGRect(x: (view.frame.width - indicatorSize) / 2, y: (view.frame.height - indicatorSize) / 2 , width: indicatorSize, height: indicatorSize)
         
         activityIndicator = NVActivityIndicatorView(frame: indicatorFrame, type: .lineScale, color: UIColor.white, padding: 20.0)
         activityIndicator.backgroundColor = UIColor.black
         view.addSubview(activityIndicator)
-
+        
     }
     
     @IBAction func addToDataPersistance(_ sender: Any) {
