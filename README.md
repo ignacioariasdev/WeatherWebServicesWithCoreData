@@ -11,3 +11,5 @@
 # Steps to build the project, in case you don't have Cocoapod installed already, here is a famous video: https://youtu.be/MuMZZtQpB6Y
 
 
+##### Notes: Xcode Version 12, Swift 5.3, iOS 14. MVC-N arquitecture.
+
